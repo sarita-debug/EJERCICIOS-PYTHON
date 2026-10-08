@@ -1,0 +1,18 @@
+from fpdf import FPDF
+
+Proyecto = input("Ingrese la descripcion del proyecto: ")
+HorasEstimadas =input("Ingrese el total de horas estimadas: ")
+ValorHora = input(" Introduzca el valor de la hora trabajada: ")
+Termino= input("Intraduzca  el tiempo estimado de finalizacion : ")
+ValorTotal = int(HorasEstimadas) * int(ValorHora)
+Pdf = FPDF()
+Pdf.add_page()
+Pdf.set_font("Arial")
+Pdf.image("images.jpg", x=10, y=40, w=90, h=100)
+Pdf.text(110, 60, Proyecto)
+Pdf.text(110, 75, HorasEstimadas)
+Pdf.text(110, 90, ValorHora)
+Pdf.text(110, 105, Termino)
+Pdf.text(110, 120, str(ValorTotal))
+Pdf.output("Presupuesto.pdf")
+print("¡Presupuesto generado exitosamente!")
